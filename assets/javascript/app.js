@@ -20,7 +20,6 @@ $("#add-train").on("click", function(event) {
   var trainName = $("#name-input").val().trim();
   var destination = $("#destination-input").val().trim();
   var firstTrain = moment($("#start-time").val().trim(), "HH:mm").format("HH:mm");
-  console.log(firstTrain);
   var frequency = $("#frequency").val().trim();
 
   // Creates local "temporary" object for holding train data
@@ -65,6 +64,7 @@ database.ref().on("child_added", function(childSnapshot) {
   console.log(firstTrain);
   console.log(frequency);
 
+  // 
   var firstTimeConverted = moment(firstTrain, "HH:mm");
   console.log(firstTimeConverted);
   var currentTime = moment().format("HH:mm");
@@ -73,7 +73,6 @@ database.ref().on("child_added", function(childSnapshot) {
 
   // To calculate the next train arrival
   var timeDiff = moment().diff(moment(firstTimeConverted), "minutes");
-  console.log(firstTrain);
   console.log("Difference in Time: " + timeDiff);
   var timeRemainder = timeDiff % frequency;
   console.log(timeRemainder)
@@ -82,9 +81,13 @@ database.ref().on("child_added", function(childSnapshot) {
   var nextTrain = moment().add(minToTrain, "minutes").format("HH:mm");
   console.log(nextTrain);
 
-//   // Calculate the total billed rate
-//   var minsAway = nextTrain - moment();
-//   console.log(empBilled);
+  // conditional to check if first train has not yet run
+  if (timeRemainder < 0) {
+      nextTrain = firstTrain;
+      console.log(nextTrain);
+      minToTrain = -timeDiff;
+      console.log(minToTrain);
+  }
 
   // Create the new row
   var newRow = $("<tr>").append(
