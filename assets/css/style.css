@@ -1,3 +1,26 @@
+* {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+body {
+    background-image: url(../images/train.jpg);
+    background-size: 850px;
+}
+
 .jumbotron {
     text-align: center;
+    background-color: #376385;
+    color: #d2d7da;
+    font-size: 40px;
+}
+
+.card-title {
+    background-color: #376385;
+    color: whitesmoke;
+    padding: 10px;
+}
+
+#add-train {
+    background-color: #376385;
+    color: whitesmoke;
 }
