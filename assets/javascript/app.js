@@ -30,16 +30,21 @@ $("#add-train").on("click", function(event) {
     frequency: frequency
   };
 
-  // Uploads train data to the database
-  database.ref().push(newTrain);
+  if (trainName === "" || destination === "" || firstTrain === "" || frequency === "") {
+    alert("Train NOT added. Make sure to choo-choose all train details");
+  }
+  else {
+    alert("Train successfully added");
 
-  // Logs everything to console
-  console.log(newTrain.trainName);
-  console.log(newTrain.destination);
-  console.log(newTrain.firstTrain);
-  console.log(newTrain.frequency);
+    // Uploads train data to the database
+    database.ref().push(newTrain);
 
-  alert("Train successfully added");
+    // Logs everything to console
+    console.log(newTrain.trainName);
+    console.log(newTrain.destination);
+    console.log(newTrain.firstTrain);
+    console.log(newTrain.frequency);
+  }
 
   // Clears all of the text-boxes
   $("name-input").val("");
