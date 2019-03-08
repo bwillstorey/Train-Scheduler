@@ -22,7 +22,7 @@
                             <div class="card-body">
                               <h5 class="card-title">Current Train Schedule</h5>
                               <hr class="my-4">
-                              <table class="table">
+                              <table id="train-table" class="table">
                                     <thead>
                                       <tr>
                                         <th scope="col">Train Name</th>
@@ -54,11 +54,11 @@
                                     </div>
                                     <div class="form-group">
                                             <label for="exampleFormControlTextarea1">First Train Time (HH:mm - military time)</label>
-                                            <textarea id="start-date" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                            <textarea id="start-time" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
                                     </div>
                                     <div class="form-group">
                                             <label for="exampleFormControlTextarea1">Frequency (min)</label>
-                                            <textarea id="rate-input" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
+                                            <textarea id="frequency" class="form-control" id="exampleFormControlTextarea1" rows="1"></textarea>
                                     </div>
                                 </form>
                                 <button id ="add-train" type="button" class="btn btn-success">Submit</button>
@@ -75,6 +75,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.6/firebase.js"></script>
     <script src="assets/javascript/app.js"></script>
 </body>
